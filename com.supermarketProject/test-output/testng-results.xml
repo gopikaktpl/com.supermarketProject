@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="1" total="2" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2022-05-18T07:28:02Z" name="Default suite" finished-at="2022-05-18T07:28:16Z" duration-ms="14160">
+    <groups>
+    </groups>
+    <test started-at="2022-05-18T07:28:02Z" name="Default test" finished-at="2022-05-18T07:28:16Z" duration-ms="14160">
+      <class name="executeClass.ExpenceCategoryPageExecution">
+        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:executeClass.ExpenceCategoryPageExecution@19c65cdc]" started-at="2022-05-18T07:28:02Z" name="beforeMethod" finished-at="2022-05-18T07:28:10Z" duration-ms="7862" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method signature="addNewexpenceCategory()[pri:1, instance:executeClass.ExpenceCategoryPageExecution@19c65cdc]" started-at="2022-05-18T07:28:10Z" name="addNewexpenceCategory" finished-at="2022-05-18T07:28:15Z" duration-ms="5136" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addNewexpenceCategory -->
+        <test-method is-config="true" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:executeClass.ExpenceCategoryPageExecution@19c65cdc]" started-at="2022-05-18T07:28:15Z" name="afterMethod" finished-at="2022-05-18T07:28:16Z" duration-ms="1094" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=addNewexpenceCategory status=SUCCESS method=ExpenceCategoryPageExecution.addNewexpenceCategory()[pri:1, instance:executeClass.ExpenceCategoryPageExecution@19c65cdc] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+      </class> <!-- executeClass.ExpenceCategoryPageExecution -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
