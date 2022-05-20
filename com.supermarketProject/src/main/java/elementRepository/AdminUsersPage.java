@@ -53,6 +53,9 @@ public class AdminUsersPage {
 	@FindBy(xpath="//table[@class='table table-bordered table-hover table-sm']//tr[1]//td[1]")
 	WebElement searchResult;
 	
+	@FindBy(xpath="//*[text()='Home']")
+	WebElement home;
+	
 	public AdminUsersPage(WebDriver driver)
 	{
 		this.driver=driver;
@@ -129,4 +132,15 @@ public class AdminUsersPage {
 	{
 		wait.elementToBeClickable(driver, newuser);
 	}
+	public void clickHome()
+	{
+		gl.clickElement(home);
+	}
+	public String getHomeURL()
+	{
+		return gl.getUrl(driver);
+	}
+	
+		
+	
 }

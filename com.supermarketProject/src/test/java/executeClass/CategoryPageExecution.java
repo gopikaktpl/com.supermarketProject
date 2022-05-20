@@ -49,6 +49,50 @@ public class CategoryPageExecution extends BaseClass {
   @Test(priority = 2)
   public void addNewCategory()
   {
-	  
+	  lp=new LoginPage(driver);
+	  lp.enterUsername("admin");
+	  lp.enterPassword("admin");
+	  lp.clickSignInButton();
+	  dp=new DashboardPage(driver);
+	  dp.clickCategory();
+	  cp=new CategoryPage(driver);
+	  cp.clicknew();
+	  cp.enterNewCategory("book");
+	  cp.selectgroup();
+	  cp.clicksave();
+	  boolean atual=cp.SuccessfullMeassage();
+	  Assert.assertTrue(atual);
+  }
+  
+  @Test(priority = 3)
+  public void verifyCancelOnAddCategoryPageCloseThePage()
+  {
+	  lp=new LoginPage(driver);
+	  lp.enterUsername("admin");
+	  lp.enterPassword("admin");
+	  lp.clickSignInButton();
+	  dp=new DashboardPage(driver);
+	  dp.clickCategory();
+	  cp=new CategoryPage(driver);
+	  cp.clicknew();
+	  cp.clickCancel();
+	  boolean atual=cp.enterCategoryInfopresent();
+	  Assert.assertFalse(atual);
+  }
+  
+  @Test(priority = 4)
+  public void verifyDelectFunction()
+  {
+	  lp=new LoginPage(driver);
+	  lp.enterUsername("admin");
+	  lp.enterPassword("admin");
+	  lp.clickSignInButton();
+	  dp=new DashboardPage(driver);
+	  dp.clickCategory();
+	  cp=new CategoryPage(driver);
+	  cp.clickDelect();
+	  cp.alert();
+	  boolean atual=cp.isDelectMessagePresent();
+	  Assert.assertTrue(atual);
   }
 }

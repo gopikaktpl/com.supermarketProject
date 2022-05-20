@@ -28,6 +28,7 @@ public class ExpenceCategoryPageExecution extends BaseClass{
   }
   
   @Test(priority =1)
+  
   public void addNewexpenceCategory()
   {
 	  lp=new LoginPage(driver);
@@ -44,5 +45,42 @@ public class ExpenceCategoryPageExecution extends BaseClass{
 	  boolean atual=ecp.successfulMessageIsPresent();
 	  Assert.assertTrue(atual);
 	  
+  }
+  
+  @Test(priority =2)
+  
+  public void editExistingCategory()
+  {
+	  lp=new LoginPage(driver);
+	  lp.enterUsername("admin");
+	  lp.enterPassword("admin");
+	  lp.clickSignInButton();
+	  dp= new DashboardPage(driver);
+	  dp.clickOnManageExpence();
+	  dp.enableExpenceCategory();
+	  ecp= new ExpenceCategoryPage(driver);
+	  ecp.clickedit();
+	  ecp.enternewTitle("note");
+	  ecp.clickUpdate();
+	  boolean atual=ecp.isUpdateSuccefull();
+	  Assert.assertTrue(atual);
+  }
+
+  @Test(priority =3)
+
+  public void delectCategory()
+  {
+	  lp=new LoginPage(driver);
+	  lp.enterUsername("admin");
+	  lp.enterPassword("admin");
+	  lp.clickSignInButton();
+	  dp= new DashboardPage(driver);
+	  dp.clickOnManageExpence();
+	  dp.enableExpenceCategory();
+	  ecp= new ExpenceCategoryPage(driver);
+	  ecp.clickDelect();
+	  ecp.alert();
+	  boolean atual=ecp.isDelectSuccessful();
+	  Assert.assertTrue(atual);
   }
 }

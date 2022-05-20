@@ -26,6 +26,9 @@ public class LoginPage {
 	@FindBy(xpath="//label[@for='remember']")
 	WebElement rememberMeCheckBox;
 	
+	@FindBy(xpath="//*[@class='alert alert-danger alert-dismissible']")
+	WebElement alertMessage;
+	
 	public LoginPage(WebDriver driver)
 	{
 		this.driver=driver;
@@ -73,6 +76,10 @@ public class LoginPage {
 	{
 		return ExcelRead.readStringData( r, c);
 		
+	}
+	public boolean isalertMessagePresent()
+	{
+		return gl.elementDisplayed(alertMessage);
 	}
 	
 }

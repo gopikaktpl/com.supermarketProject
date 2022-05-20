@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="executeClass.ExpenceCategoryPageExecution">
+      <class name="executeClass.LogInPageExecution">
         <methods>
-          <include name="addNewexpenceCategory"/>
+          <include name="verifyUnsuccessfulLogin" invocation-numbers="0 1 2"/>
           <include name="afterMethod"/>
           <include name="beforeMethod"/>
         </methods>
-      </class> <!-- executeClass.ExpenceCategoryPageExecution -->
+      </class> <!-- executeClass.LogInPageExecution -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -1,5 +1,7 @@
 package executeClass;
 
+import java.awt.AWTException;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -42,7 +44,7 @@ public class ManageProductExecution extends BaseClass {
 	  mp.enterTitleToBeSearched("Maggi Noodle");
 	  mp.clickSumitSearch();
 	  String atual= mp.searchResult();
-	  String expected="Maggi Noodle P833 Combo P834";
+	  String expected="Maggi Noodle P833 Combo P835";
 	  Assert.assertEquals(atual, expected);
 	  
   }
@@ -81,4 +83,9 @@ public class ManageProductExecution extends BaseClass {
 	  boolean atual=mp.isDelectMessageDisplayed();
 	  Assert.assertTrue(atual);
   }
+  
+  
+  
+  
+  
 }

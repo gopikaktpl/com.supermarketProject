@@ -1,18 +1,10 @@
 package executeClass;
 
 import org.testng.annotations.Test;
-
 import elementRepository.LoginPage;
-
-import org.testng.annotations.BeforeClass;
-
 import java.io.IOException;
-import java.util.concurrent.TimeUnit;
-
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
+
 
 public class LogInPageExecution extends BaseClass{
 	
@@ -39,6 +31,27 @@ public class LogInPageExecution extends BaseClass{
 	  Assert.assertTrue(status);
 	  
   }
-  
-  
+
+  @Test(priority = 2)
+  public void verifySLoginWithInvalidUsernameAndPassword() throws IOException {
+	  lp =new LoginPage(driver);
+	  lp.enterUsername(lp.readUsername(3,0));
+	  lp.enterPassword(lp.readPassword(3,1));
+	  lp.clickSignInButton();
+	  boolean atual=lp.isalertMessagePresent();
+	  Assert.assertTrue(atual);
+	  
+  }
+  @Test(dataProvider="data-provider",dataProviderClass=DataProviderClass.class)
+  public void verifyUnsuccessfulLogin(String uname,String passwd)
+  {
+	  lp =new LoginPage(driver);
+	  lp.enterUsername(uname);
+	  lp.enterPassword(passwd);
+	  lp.clickSignInButton();
+	  String expected="http://groceryapp.uniqassosiates.com/admin";
+	  String actual= driver.getCurrentUrl();
+	  Assert.assertEquals(actual, expected);
+  }
+
 }

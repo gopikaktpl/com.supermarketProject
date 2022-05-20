@@ -80,4 +80,21 @@ public class AdminUsersPageExecution extends BaseClass {
 	  String expected="Robert";
 	  Assert.assertEquals(atual, expected);
   }
+  
+  @Test(priority = 4)
+  public void isPage2SelectedByClickingNextPage()
+  {
+	  lp=new LoginPage(driver);
+	  lp.enterUsername("admin");
+	  lp.enterPassword("admin");
+	  lp.clickSignInButton();
+	  dp=new DashboardPage(driver);
+	  dp.clickadminUsers();
+	  ap=new AdminUsersPage(driver);
+	  ap.clickHome();
+	  String atual=ap.getHomeURL();
+	  String expect="http://groceryapp.uniqassosiates.com/admin/home";
+	  Assert.assertEquals(atual, expect);
+	    
+  }
 }

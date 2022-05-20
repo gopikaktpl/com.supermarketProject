@@ -29,6 +29,23 @@ public class ExpenceCategoryPage {
 	@FindBy(xpath="//*[@class='alert alert-success alert-dismissible']")
 	WebElement successfull;
 	
+	@FindBy(xpath="(//*[@class='fas fa-edit'])[2]")
+	WebElement editBook;
+	
+	@FindBy(xpath="//input[@id='name']")
+	WebElement title;
+	
+	@FindBy(xpath="//button[@name='Update']")
+	WebElement update;
+	
+	@FindBy(xpath="//*[@class='alert alert-success alert-dismissible']")
+	WebElement categoryUpdatedSuccessful;
+	
+	@FindBy(xpath="(//*[@class='fas fa-trash-alt'])[1]")
+	WebElement delect;
+	
+	@FindBy(xpath="//*[@class='alert alert-success alert-dismissible']")
+	WebElement delectSuccessful;
 	
 	public ExpenceCategoryPage(WebDriver driver)
 	{
@@ -57,5 +74,32 @@ public class ExpenceCategoryPage {
 	return gl.elementDisplayed(successfull);
 	   
    }
- 
+   public void clickedit()
+   {
+	   gl.clickElement(editBook);
+   }
+   public void enternewTitle(String name)
+   {
+	   gl.enterValue(title, name);
+   }
+   public void clickUpdate()
+   {
+	   gl.clickElement(update);
+   }
+   public boolean isUpdateSuccefull()
+   {
+	   return gl.elementDisplayed(categoryUpdatedSuccessful);
+   }
+   public void clickDelect()
+   {
+	   gl.clickElement(delect);
+   }
+   public void alert()
+   {
+	   gl.alert(driver);
+   }
+   public boolean isDelectSuccessful()
+   {
+	   return gl.elementDisplayed(delectSuccessful);
+   }
 }

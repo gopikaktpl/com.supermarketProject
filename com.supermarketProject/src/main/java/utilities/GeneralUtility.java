@@ -2,6 +2,7 @@ package utilities;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -19,6 +20,12 @@ public class GeneralUtility {
 	{
 		element.click();
 		
+	}
+	
+	public void scrolldown(WebDriver driver, WebElement element)
+	{
+		JavascriptExecutor js=(JavascriptExecutor)driver;
+		js.executeScript("arguments[0].scrollIntoView();", element);
 	}
 	
 	public boolean elementDisplayed(WebElement element)

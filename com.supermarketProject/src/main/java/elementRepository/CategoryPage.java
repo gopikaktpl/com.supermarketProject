@@ -4,7 +4,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import utilities.ExplicitWait;
 import utilities.GeneralUtility;
 
@@ -34,6 +33,27 @@ public class CategoryPage {
 	@FindBy(xpath="//input[@id='category']")
 	WebElement enterNewCategory;
 	
+	@FindBy(xpath="(//span[text()='New'])[1]")
+	WebElement selectgroupNew;
+	
+	@FindBy(xpath="//button[@name='create']")
+	WebElement save;
+	
+	@FindBy(xpath="//*[@class='alert alert-success alert-dismissible']")
+	WebElement categoryCreatedSuccessful;
+	
+	@FindBy(xpath="//*[@class='card-title']")
+	WebElement enterCategoryInformation;
+	
+	@FindBy(xpath="//*[@class='btn btn-default btn-fix']")
+	WebElement cancel;
+	
+	@FindBy(xpath="(//*[@class='fas fa-trash-alt'])[6]")
+	WebElement delect;
+	
+	@FindBy(xpath="//*[@class='alert alert-success alert-dismissible']")
+	WebElement categoryDelectedSuccessful;
+	
 	
 	
 	public CategoryPage(WebDriver driver)
@@ -41,6 +61,7 @@ public class CategoryPage {
 		this.driver=driver;
 		PageFactory.initElements(driver, this);
 	}
+	
 	
 	public String getHeading()
 	{
@@ -69,5 +90,44 @@ public class CategoryPage {
 		return gl.getText(searchResult);
 		
 	}
-
+	public void clicknew() {
+		gl.clickElement(newCategory);
+	}
+	public void enterNewCategory(String name)
+	{
+		gl.enterValue(enterNewCategory, name);
+	}
+	public void selectgroup()
+	{
+		gl.clickElement(selectgroupNew);
+	}
+	public void clicksave()
+	{
+		gl.clickElement(save);
+	}
+	public boolean SuccessfullMeassage()
+	{
+		return gl.elementDisplayed(categoryCreatedSuccessful);
+	}
+	public void clickCancel()
+	{
+		gl.clickElement(cancel);
+	}
+	public boolean enterCategoryInfopresent()
+	{
+		return gl.elementDisplayed(enterCategoryInformation);
+	}
+	public void clickDelect()
+	{
+		gl.clickElement(delect);
+	}
+	public void alert()
+	{
+		gl.alert(driver);
+	}
+	public boolean isDelectMessagePresent()
+	{
+		return gl.elementDisplayed(categoryDelectedSuccessful);
+		
+	}
 }
